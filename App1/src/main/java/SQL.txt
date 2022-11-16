@@ -1,0 +1,52 @@
+CREATE DATABASE Atypon;
+
+USE Atypon;
+
+CREATE TABLE students (
+    studentId INT AUTO_INCREMENT PRIMARY KEY,
+    studentName VARCHAR(255),
+    password VARCHAR(255)
+);
+
+CREATE TABLE courses (
+    courseId varchar(255) NOT NULL PRIMARY KEY, 
+    name varchar(255)
+);
+
+CREATE TABLE grades(
+    courseId VARCHAR(255),
+    studentId INT,
+    grade INT, 
+    FOREIGN KEY (studentId) REFERENCES students(studentId),
+    FOREIGN KEY (courseId) REFERENCES courses(courseId)
+);
+
+INSERT INTO students (studentName, password) VALUES ("Mohammad", "test");
+INSERT INTO students (studentName, password) VALUES ("Salah", "test");
+INSERT INTO students (studentName, password) VALUES ("James", "test");
+INSERT INTO students (studentName, password) VALUES ("Bob", "test");
+
+INSERT INTO courses (courseId, name) VALUES ("CS101", "Introduction to Programming"); 
+INSERT INTO courses (courseId, name) VALUES ("CS201", "Object Oriented Programming and Design"); 
+INSERT INTO courses (courseId, name) VALUES ("CS301", "Data Structures and Algorithms"); 
+INSERT INTO courses (courseId, name) VALUES ("CS401", "Advanced Programming and DevOps");
+
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS101", 1, 100); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS201", 1, 97); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS301", 1, 99); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS401", 1, 100);
+
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS101", 2, 100); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS201", 2, 89); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS301", 2, 90); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS401", 2, 68);
+
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS101", 3, 100); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS201", 3, 100); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS301", 3, 99); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS401", 3, 75);
+
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS101", 4, 100); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS201", 4, 90); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS301", 4, 78); 
+INSERT INTO grades (courseId, studentId, grade) VALUES ("CS401", 4, 70);
